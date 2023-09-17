@@ -12,6 +12,7 @@ void imprimirPalabra(int num,int lang);
 int main(){
     int idioma,aumento=1,numero=1;
     bool repetir;
+    char guardia;
 	//1=español,2=inglés,3=italiano,4=portugués,5=francés
 	do{
 		
@@ -19,42 +20,76 @@ int main(){
 		{
 			cout<<"Ingrese un numero de 0 a 9: "<<endl;
 			
-			cin>>numero;
+			cin>>guardia;
+            if(!isdigit(guardia)){
+                cout<<"Ese no es un numero..."<<endl;   
+            }else
+            {
+                numero=guardia-'0';
+            }
 		
 			if(numero>9||numero<0)
 			{
 				cout<<"El numero ingresado no esta en el rango!"<<endl;
 			}
 		
-		} while (numero>9||numero<0);
+		} while (numero>9 || numero<0 && !isdigit(guardia));
 
 		do
 		{
 			cout<<"Ingrese un aumento de 1 a 4 con el que mostrar el numero: "<<endl;
-			cin>>aumento;
+			cin>>guardia;
+
+            if(!isdigit(guardia)){
+                cout<<"Ese no es un numero..."<<endl;   
+            }else
+            {
+                aumento=guardia-'0';
+            }
 
             if(aumento>4 || aumento<1)
                 cout<<"¡Ese numero no esta entre"<<endl;
 		
-		} while (aumento>4 || aumento<1);
+		} while (aumento>4 || aumento<1 && !isdigit(guardia));
 
 		do
 		{
 			cout<<"En que idioma desea mostrarlo? \n[1]-Espanol\n[2]-Ingles\n[3]-Italiano\n[4]-Portugues\n[5]-Frances\n\n"<<endl;
-			cin>>idioma;
+			cin>>guardia;
+
+            if(!isdigit(guardia)){
+                cout<<"Ese no es un numero..."<<endl;   
+            }else
+            {
+                idioma=guardia-'0';
+            }
 
 			if(idioma>5||idioma<1)
 				cout<<"¡Esa no es una de las opciones!";
 
-		} while (idioma>5 || aumento<1);
+		} while (idioma>5 || aumento<1 && !isdigit(guardia));
 
 		imprimirPalabra(numero,idioma);
 		imprimirNum(numero,aumento);
 		
 		do{
 			cout<<"     Desea ver otro numero?\n     [1]-Si\n     [2]-No\n"<<endl;
-			cin>>idioma;
-		}while(idioma!=1&&idioma!=2);
+			cin>>guardia;
+
+            if(!isdigit(guardia)){
+                cout<<"Ese no es ni siquiera un numero..."<<endl;
+                idioma=guardia;
+            }else
+            {
+                idioma=guardia-'0';
+            }
+
+            if(idioma!=1 && idioma!=2){
+                cout<<"Esa no es una de las opciones"<<endl;
+            }
+
+
+		}while(idioma!=1 && idioma!=2 && !isdigit(guardia));
 		
 		if(idioma==2)
 		{
