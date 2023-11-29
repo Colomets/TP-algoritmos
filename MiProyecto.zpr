@@ -14,7 +14,7 @@ tab_width=4
 tab_use_spaces=0
 explorer_path=.
 inherits_from=
-current_source=Main.cpp
+current_source=TDAarchivo.h
 path_char=\
 [source]
 path=Main.cpp
@@ -107,6 +107,10 @@ cursor=11:54
 [header]
 path=memoria.h
 cursor=10:4
+[header]
+path=TDAarchivo.h
+cursor=31:0
+open=true
 [config]
 name=Debug
 toolchain=
