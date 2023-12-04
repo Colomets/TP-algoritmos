@@ -29,7 +29,7 @@ bool abrirLibro(Libro arch, char modo, string nombre){//abre el archivo para lee
 	return confirmarLibro(arch);
 }
 
-void cerrarLibro(Libro.arch){
+void cerrarLibro(Libro arch){
 	arch.arc.close();
 }
 
@@ -41,4 +41,18 @@ char leerCaracterLibro(Libro arch){
 
 void LeerPalabraLibro(Libro arch, char cad[], int tl=20){
 	arch.arc.getline(cad, tl,' ');
+	int p;
+	for(int i=0;i<tl;i++){
+		if((!isalpha(cad[i]))&&cad[i]!='-'){
+			p=i;
+			while(p<tl-1){
+				cad[p]=cad[p+1];
+			}
+			tl--;
+		}
+	}
+}
+
+void borrarArchivo(Libro arch){
+	arch.arc.trunc();
 }
