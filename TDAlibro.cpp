@@ -1,4 +1,4 @@
-#include "TDALIBRO_H"
+#include "TDAlibro.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -8,8 +8,8 @@ Libro crearLibro(){
 	return arch;
 }
 
-bool confirmarLibro(Libro arch){//confirma si se abrió correctamente
-	return arch.arc.is_open;
+bool confirmarLibro(Libro &arch){//confirma si se abrió correctamente
+	return !arch.arc.fail();
 }
 	
 bool abrirLibro(Libro arch, char modo, string nombre){//abre el archivo para leer o escribir según el modo elegido
@@ -29,11 +29,11 @@ bool abrirLibro(Libro arch, char modo, string nombre){//abre el archivo para lee
 	return confirmarLibro(arch);
 }
 
-void cerrarLibro(Libro arch){
+void cerrarLibro(Libro &arch){
 	arch.arc.close();
 }
 
-char leerCaracterLibro(Libro arch){
+char leerCaracterLibro(Libro &arch){
 	char c;
 	arch.arc.get(c);
 	return c;
@@ -51,8 +51,4 @@ void LeerPalabraLibro(Libro arch, char cad[], int tl=20){
 			tl--;
 		}
 	}
-}
-
-void borrarArchivo(Libro arch){
-	arch.arc.trunc();
 }

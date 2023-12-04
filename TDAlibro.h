@@ -9,7 +9,7 @@ struct Libro{
 	
 };
 
-void cerrarLibro(Libro.arch);
+void cerrarLibro(Libro arch);
 bool abrirLibro(Libro arch,char modo, string nombre);
 Libro crearLibro();
 char leerCaracterLibro(Libro arch);

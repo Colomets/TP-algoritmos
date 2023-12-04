@@ -37,7 +37,7 @@ char memoria(string palabras[]){
 	char letraMasVeces[10],vocales[50],palabraMasLarga[200];
 	do{
 		cout<<"Cual es la letra que se repite mas veces? :";
-		gets(letraMasVeces)
+		gets(letraMasVeces);
 		if(strlen(letraMasVeces)>1 or !(isalpha(letraMasVeces[0]))){//Verifica que la cadena de caracteres ingresada contenga solo 1 caracter y sea una letra
 			system("cls");
 			tituloMemoria();
